@@ -151,7 +151,7 @@ A sample console app which uses the BasketApiClient to exercise the API.
 
 ## Enhancements
 
-Some suggestions for future enhancement :
+Some suggestions for future enhancements:
 
 ### HATEOAS
 The current version of the API is at level 2 on the [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html). Hyperlinks can be returned in the responses that describes the operations available on each of resource. The system acts as a state machine and clients can use these links to move from one state to another. This would make the API more evolveable without needing to update all the clients. For example the [Siren](https://github.com/kevinswiber/siren) standard could be used.
