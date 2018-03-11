@@ -12,6 +12,8 @@ The design of the API is modeled on the following references:
 
 [REST API v3 by Github](https://developer.github.com/v3/)
 
+All API access is over HTTP. All data is sent and received as JSON.
+
 ## Features
 
 The following is a list of all the features which the API contains.
