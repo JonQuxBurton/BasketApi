@@ -2,9 +2,7 @@
 
 ## Overview
 
-This document describes the prototype Basket REST API.
-
-The design of the API is modeled on the following references:
+This document describes the prototype of the Basket REST API. The design of the API is modeled on the following references:
 
 ["Building a RESTful API with ASP.NET Core" Pluralsight course by Kevin Dockx](https://app.pluralsight.com/library/courses/asp-dot-net-core-restful-api-building/table-of-contents)
 
