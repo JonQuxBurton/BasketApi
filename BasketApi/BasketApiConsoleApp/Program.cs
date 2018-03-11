@@ -9,9 +9,7 @@ namespace BasketApiConsoleApp
         {
             var settings = new BasketClientSettings
             {
-                // BaseUrl = "http://localhost:57332/api/"
-                BaseUrl = "http://localhost:57331/api/"
-
+                BaseUrl = "http://localhost:57332/api/"
             };
 
             var client = new BasketClientFactory().Create(settings);

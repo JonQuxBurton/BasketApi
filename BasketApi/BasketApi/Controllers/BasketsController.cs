@@ -29,6 +29,11 @@ namespace BasketApi.Controllers
         [HttpPost("{basketId}/clear")]
         public IActionResult Clear(Guid basketId)
         {
+            var basket = this.basketsRepository.GetBasket(basketId);
+
+            if (basket == null)
+                return NotFound();
+
             this.basketsRepository.ClearBasket(basketId);
 
             return NoContent();
@@ -38,6 +43,10 @@ namespace BasketApi.Controllers
         public IActionResult Get(Guid basketId)
         {
             var basket = this.basketsRepository.GetBasket(basketId);
+
+            if (basket == null)
+                return NotFound();
+
             return new OkObjectResult(basket);
         }
     }

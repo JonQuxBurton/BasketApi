@@ -13,7 +13,7 @@ namespace BasketApiClient
         {
             var items = "{empty}";
 
-            if (Items.Count == 0)
+            if (Items.Count > 0)
                 items = string.Join("\n", Items.Select(x => $"{x.code}, {x.quantity}"));
 
             return $"Basket: {Id}\n" + items;
