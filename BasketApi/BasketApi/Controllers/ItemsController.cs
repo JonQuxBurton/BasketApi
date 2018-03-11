@@ -60,11 +60,6 @@ namespace BasketApi.Controllers
             if (basket == null)
                 return NotFound();
 
-            var item = this.basketRepository.GetItem(basketId, itemCode);
-
-            if (item == null)
-                return NotFound();
-
             this.basketRepository.RemoveItemFromBasket(basketId, itemCode);
 
             return NoContent();

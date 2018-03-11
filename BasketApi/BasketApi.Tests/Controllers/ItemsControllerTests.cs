@@ -126,7 +126,7 @@ namespace BasketApi.Tests.Controllers
         }
 
         [Fact]
-        public void Delete_WhenItemNotFound_ReturnsNotFound()
+        public void Delete_WhenItemNotFound_ReturnsNoContent()
         {
             var dummyItemCode = "Arduino";
             var dummyBasket = new Basket(Guid.NewGuid());
@@ -135,7 +135,7 @@ namespace BasketApi.Tests.Controllers
 
             var actual = sut.Delete(dummyBasket.Id, dummyItemCode);
 
-            Assert.IsType<NotFoundResult>(actual);
+            Assert.IsType<NoContentResult>(actual);
         }
 
         [Fact]
