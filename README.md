@@ -2,7 +2,7 @@
 
 ## Overview
 
-This describes the resources that make up the prototype Basket REST API.
+This document describes the prototype Basket REST API.
 
 The design of the API is modeled on the following references:
 
