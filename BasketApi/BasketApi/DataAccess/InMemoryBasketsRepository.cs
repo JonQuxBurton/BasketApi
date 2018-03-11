@@ -35,7 +35,7 @@ namespace BasketApi.DataAccess
 
         public Item GetItem(Guid basketId, string itemCode)
         {
-            return this.GetBasket(basketId).Items.First(y => y.Code == itemCode);
+            return this.GetBasket(basketId).Items.FirstOrDefault(y => y.code == itemCode);
         }
 
         public IEnumerable<Item> GetItemsForBasket(Guid basketId)
@@ -45,7 +45,12 @@ namespace BasketApi.DataAccess
 
         public void RemoveItemFromBasket(Guid basketId, string itemCode)
         {
-            this.GetBasket(basketId).Items.RemoveAll(x => x.Code == itemCode);
+            this.GetBasket(basketId).Items.RemoveAll(x => x.code == itemCode);
+        }
+
+        public void UpdateItemInBasket(Guid basketId, Item item)
+        {
+            this.GetBasket(basketId).Items.First(y => y.code == item.code).quantity = item.quantity;
         }
     }
 }

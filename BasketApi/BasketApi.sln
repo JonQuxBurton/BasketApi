@@ -3,9 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketApi", "BasketApi\BasketApi.csproj", "{DF186E9E-B05D-4C70-8974-3D6AF19C2BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketApi", "BasketApi\BasketApi.csproj", "{DF186E9E-B05D-4C70-8974-3D6AF19C2BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketApi.Tests", "BasketApi.Tests\BasketApi.Tests.csproj", "{65D72BCC-53A2-4482-A635-35B8B215E002}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasketApi.Tests", "BasketApi.Tests\BasketApi.Tests.csproj", "{65D72BCC-53A2-4482-A635-35B8B215E002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketApiClient", "BasketApiClient\BasketApiClient.csproj", "{34D610CD-489B-454D-BE38-956E8C5E618B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketApiConsoleApp", "BasketApiConsoleApp\BasketApiConsoleApp.csproj", "{420FCDDA-C463-4DB2-84F0-8AE60FD84DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketApiClient.Tests", "BasketApiClient.Tests\BasketApiClient.Tests.csproj", "{58F87087-0910-4BA6-8B30-A54EC1CAC7A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{65D72BCC-53A2-4482-A635-35B8B215E002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65D72BCC-53A2-4482-A635-35B8B215E002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65D72BCC-53A2-4482-A635-35B8B215E002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D610CD-489B-454D-BE38-956E8C5E618B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D610CD-489B-454D-BE38-956E8C5E618B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D610CD-489B-454D-BE38-956E8C5E618B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D610CD-489B-454D-BE38-956E8C5E618B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420FCDDA-C463-4DB2-84F0-8AE60FD84DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420FCDDA-C463-4DB2-84F0-8AE60FD84DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420FCDDA-C463-4DB2-84F0-8AE60FD84DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420FCDDA-C463-4DB2-84F0-8AE60FD84DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F87087-0910-4BA6-8B30-A54EC1CAC7A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F87087-0910-4BA6-8B30-A54EC1CAC7A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F87087-0910-4BA6-8B30-A54EC1CAC7A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F87087-0910-4BA6-8B30-A54EC1CAC7A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

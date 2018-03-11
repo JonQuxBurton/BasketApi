@@ -22,7 +22,7 @@ namespace BasketApi.Controllers
             return this.basketRepository.GetItemsForBasket(basketId);
         }
 
-        [HttpGet("/{itemCode}")]
+        [HttpGet("{itemCode}")]
         public IActionResult Get(Guid basketId, string itemCode)
         {
             var item = this.basketRepository.GetItem(basketId, itemCode);
@@ -31,14 +31,19 @@ namespace BasketApi.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put(Guid basketId, [FromBody] Item itemToAdd)
+        public IActionResult Put(Guid basketId, [FromBody] Item item)
         {
-            this.basketRepository.AddItemToBasket(basketId, itemToAdd);
+            var existingItem = this.basketRepository.GetItem(basketId, item.code);
+
+            if (existingItem != null)
+                this.basketRepository.UpdateItemInBasket(basketId, item);
+            else
+                this.basketRepository.AddItemToBasket(basketId, item);
 
             return NoContent();
         }
 
-        [HttpDelete("/{itemCode}")]
+        [HttpDelete("{itemCode}")]
         public IActionResult Delete(Guid basketId, string itemCode)
         {
             this.basketRepository.RemoveItemFromBasket(basketId, itemCode);

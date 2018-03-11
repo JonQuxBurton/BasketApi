@@ -66,9 +66,9 @@ namespace BasketApi.Tests.Controllers
         public void GetReturnsBasket()
         {
             var expectedBasket = new Basket(Guid.NewGuid());
-            expectedBasket.Items.Add(new Item { Code = "Arduino" });
-            expectedBasket.Items.Add(new Item { Code = "BBC micro:bit" });
-            expectedBasket.Items.Add(new Item { Code = "Raspberry Pi" });
+            expectedBasket.Items.Add(new Item { code = "Arduino" });
+            expectedBasket.Items.Add(new Item { code = "BBC micro:bit" });
+            expectedBasket.Items.Add(new Item { code = "Raspberry Pi" });
             basketsRepositoryMock.Setup(x => x.GetBasket(expectedBasket.Id))
                 .Returns(expectedBasket);
 
@@ -80,9 +80,9 @@ namespace BasketApi.Tests.Controllers
             var actualBasket = actualResult.Value as Basket;
             Assert.Equal(expectedBasket.Id, actualBasket.Id);
             Assert.Equal(expectedBasket.Items.Count, actualBasket.Items.Count);
-            Assert.NotNull(actualBasket.Items.First(x => x.Code == expectedBasket.Items.First().Code));
-            Assert.NotNull(actualBasket.Items.First(x => x.Code == expectedBasket.Items.ElementAt(1).Code));
-            Assert.NotNull(actualBasket.Items.First(x => x.Code == expectedBasket.Items.ElementAt(2).Code));
+            Assert.NotNull(actualBasket.Items.First(x => x.code == expectedBasket.Items.First().code));
+            Assert.NotNull(actualBasket.Items.First(x => x.code == expectedBasket.Items.ElementAt(1).code));
+            Assert.NotNull(actualBasket.Items.First(x => x.code == expectedBasket.Items.ElementAt(2).code));
         }
     }
 }

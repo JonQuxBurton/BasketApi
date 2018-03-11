@@ -1,4 +1,4 @@
-﻿namespace BasketApi.Representations
+﻿namespace BasketApiClient
 {
     public class Item
     {
