@@ -25,8 +25,8 @@ namespace BasketApi.Tests.Controllers
         public void GetReturnsAllItems()
         {
             var expectedItems = new List<Item>() {
-                new Item{ Code = "Arduino" },
-                new Item{ Code = "BBC micro:bit" }
+                new Item{ code = "Arduino" },
+                new Item{ code = "BBC micro:bit" }
             };
             var dummyBasketId = Guid.NewGuid();
             basketsRepositoryMock.Setup(x => x.GetItemsForBasket(dummyBasketId))
@@ -43,19 +43,19 @@ namespace BasketApi.Tests.Controllers
             var expectedItemCode = "Arduino";
             var expectedBasketId = Guid.NewGuid();
             basketsRepositoryMock.Setup(x => x.GetItem(expectedBasketId, expectedItemCode))
-                .Returns(new Item { Code = expectedItemCode });
+                .Returns(new Item { code = expectedItemCode });
             var actual = sut.Get(expectedBasketId, expectedItemCode);
 
             Assert.IsType<OkObjectResult>(actual);
             var actualResult = actual as OkObjectResult;
             Assert.IsType<Item>(actualResult.Value);
-            Assert.Equal(expectedItemCode, (actualResult.Value as Item).Code);
+            Assert.Equal(expectedItemCode, (actualResult.Value as Item).code);
         }
 
         [Fact]
-        public void PutAddsAnItem()
+        public void PutAddsAnNewItem()
         {
-            var expectedItem = new Item { Code = "APP01" };
+            var expectedItem = new Item { code = "Arduino" };
             var expectedBasketId = Guid.NewGuid();
             
             sut.Put(expectedBasketId, expectedItem);
@@ -66,7 +66,7 @@ namespace BasketApi.Tests.Controllers
         [Fact]
         public void PutReturnsNoContent()
         {
-            var expectedItem = new Item { Code = "APP01" };
+            var expectedItem = new Item { code = "Arduino" };
             var expectedBasketId = Guid.NewGuid();
 
             var actual = sut.Put(expectedBasketId, expectedItem);
@@ -75,9 +75,23 @@ namespace BasketApi.Tests.Controllers
         }
 
         [Fact]
+        public void PutUpdatesAnExistingItem()
+        {
+            var expectedBasketId = Guid.NewGuid();
+            var expectedItem = new Item { code = "Arduino", quantity = 42};
+            var existingItem = new Item { code = "Arduino", quantity = 1 };
+            basketsRepositoryMock.Setup(x => x.GetItem(expectedBasketId, existingItem.code))
+                .Returns(existingItem);
+
+            sut.Put(expectedBasketId, expectedItem);
+
+            basketsRepositoryMock.Verify(x => x.UpdateItemInBasket(expectedBasketId, expectedItem));
+        }
+
+        [Fact]
         public void DeleteRemovesAnItem()
         {
-            var expectedItemCode = "APP01";
+            var expectedItemCode = "Arduino";
             var expectedBasketId = Guid.NewGuid();
 
             sut.Delete(expectedBasketId, expectedItemCode);
@@ -88,7 +102,7 @@ namespace BasketApi.Tests.Controllers
         [Fact]
         public void DeleteReturnsNoContent()
         {
-            var dummyItemCode = "APP01";
+            var dummyItemCode = "Arduino";
             var dummyBasketId = Guid.NewGuid();
 
             var actual = sut.Delete(dummyBasketId, dummyItemCode);
