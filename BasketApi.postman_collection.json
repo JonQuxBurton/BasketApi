@@ -1,0 +1,212 @@
+{
+	"info": {
+		"name": "BasketApi",
+		"_postman_id": "8513044a-9f7f-482f-ec7a-9381b359664c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Basket",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:57332/api/baskets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"baskets"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Basket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:57332/api/baskets/3080d143-6412-45cb-a82f-798ad1065177",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"baskets",
+						"3080d143-6412-45cb-a82f-798ad1065177"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Clear a Basket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:57332/api/baskets/3080d143-6412-45cb-a82f-798ad1065177/clear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"baskets",
+						"3080d143-6412-45cb-a82f-798ad1065177",
+						"clear"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add an Item to a Basket",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Code\": \"Arduino\",\n\t\"Quantity\" : 42\n}"
+				},
+				"url": {
+					"raw": "http://localhost:57332/api/baskets/3080d143-6412-45cb-a82f-798ad1065177/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"baskets",
+						"3080d143-6412-45cb-a82f-798ad1065177",
+						"items"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get an Item from a Basket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:57332/api/baskets/3080d143-6412-45cb-a82f-798ad1065177/items/Arduino",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"baskets",
+						"3080d143-6412-45cb-a82f-798ad1065177",
+						"items",
+						"Arduino"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Remove an Item from a Basket",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:57332/api/baskets/3080d143-6412-45cb-a82f-798ad1065177/items/Arduino",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"baskets",
+						"3080d143-6412-45cb-a82f-798ad1065177",
+						"items",
+						"Arduino"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the Items in a Basket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:57332/api/baskets/3080d143-6412-45cb-a82f-798ad1065177/items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"baskets",
+						"3080d143-6412-45cb-a82f-798ad1065177",
+						"items"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Check the Status of the API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:57332/api/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "57332",
+					"path": [
+						"api",
+						"status"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
