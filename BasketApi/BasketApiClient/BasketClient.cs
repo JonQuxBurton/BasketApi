@@ -20,6 +20,10 @@ namespace BasketApiClient
             this.restRequestBuilder = restRequestFactory;
         }
 
+        /// <summary>
+        /// A basic check for connectivity and if the API is available.
+        /// </summary>
+        /// <returns>True if available, else false.</returns>
         public bool CanConnect()
         {
             restClient.BaseUrl = new Uri(settings.BaseUrl);
@@ -32,18 +36,9 @@ namespace BasketApiClient
             return response.StatusCode == System.Net.HttpStatusCode.OK;
         }
 
-        public Basket GetBasket()
-        {
-            restClient.BaseUrl = new Uri(settings.BaseUrl);
-
-            restRequestBuilder.Setup(Method.GET, $"baskets/{BasketId}");
-            var request = restRequestBuilder.Build();
-
-            var response = restClient.Execute<Basket>(request);
-
-            return response.Data;
-        }
-
+        /// <summary>
+        /// Creates a new Basket.
+        /// </summary>
         public void CreateBasket()
         {
             restClient.BaseUrl = new Uri(settings.BaseUrl);
@@ -56,6 +51,26 @@ namespace BasketApiClient
             BasketId = response.Data.Id;
         }
 
+        /// <summary>
+        /// Gets the Basket previously created by CreatBasket..
+        /// </summary>
+        /// <returns>The Basket.</returns>
+        public Basket GetBasket()
+        {
+            restClient.BaseUrl = new Uri(settings.BaseUrl);
+
+            restRequestBuilder.Setup(Method.GET, $"baskets/{BasketId}");
+            var request = restRequestBuilder.Build();
+
+            var response = restClient.Execute<Basket>(request);
+
+            return response.Data;
+        }
+        
+        /// <summary>
+        /// Adds an Item to the current Basket.
+        /// </summary>
+        /// <param name="item"></param>
         public void AddItem(Item item)
         {
             restClient.BaseUrl = new Uri(settings.BaseUrl);
@@ -68,6 +83,10 @@ namespace BasketApiClient
             restClient.Execute(request);
         }
 
+        /// <summary>
+        /// Updates an Item in the current Basket.
+        /// </summary>
+        /// <param name="item"></param>
         public void UpdateItem(Item item)
         {
             restClient.BaseUrl = new Uri(settings.BaseUrl);
@@ -79,6 +98,10 @@ namespace BasketApiClient
             restClient.Execute(request);
         }
 
+        /// <summary>
+        /// Removes an Item from the current Basket.
+        /// </summary>
+        /// <param name="itemCode"></param>
         public void RemoveItem(string itemCode)
         {
             restClient.BaseUrl = new Uri(settings.BaseUrl);
@@ -89,6 +112,9 @@ namespace BasketApiClient
             restClient.Execute(request);
         }
 
+        /// <summary>
+        /// Clears the current Basket.
+        /// </summary>
         public void Clear()
         {
             restClient.BaseUrl = new Uri(settings.BaseUrl);

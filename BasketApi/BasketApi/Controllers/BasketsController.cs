@@ -15,9 +15,9 @@ namespace BasketApi.Controllers
         }
 
         /// <summary>
-        /// 
+        /// Creates a new Basket.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The newly created Basket.</returns>
         [HttpPost]
         public IActionResult Post()
         {
@@ -26,6 +26,11 @@ namespace BasketApi.Controllers
             return CreatedAtRoute("GetBasket", new { basketId = newBasket.Id }, newBasket);
         }
 
+        /// <summary>
+        /// Clears all the Items froma Basket.
+        /// </summary>
+        /// <param name="basketId"></param>
+        /// <returns>204 No Content</returns>
         [HttpPost("{basketId}/clear")]
         public IActionResult Clear(Guid basketId)
         {
@@ -39,6 +44,11 @@ namespace BasketApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Gets a Basket.
+        /// </summary>
+        /// <param name="basketId"></param>
+        /// <returns>Gets a Basket and its Items.</returns>
         [HttpGet("{basketId}", Name="GetBasket")]
         public IActionResult Get(Guid basketId)
         {

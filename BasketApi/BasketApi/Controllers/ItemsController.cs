@@ -15,6 +15,12 @@ namespace BasketApi.Controllers
             this.basketRepository = basketRepository;
         }
 
+        /// <summary>
+        /// Gets an Item from a Basket.
+        /// </summary>
+        /// <param name="basketId"></param>
+        /// <param name="itemCode"></param>
+        /// <returns>200 OK and the Item</returns>
         [HttpGet("{itemCode}")]
         public IActionResult Get(Guid basketId, string itemCode)
         {
@@ -31,6 +37,12 @@ namespace BasketApi.Controllers
             return new OkObjectResult(item);
         }
 
+        /// <summary>
+        /// Adds an Item and Quantity to a Basket. If the Item is already in the Basket, the Quantity will be updated.
+        /// </summary>
+        /// <param name="basketId"></param>
+        /// <param name="item"></param>
+        /// <returns>204 No Content</returns>
         [HttpPut]
         public IActionResult Put(Guid basketId, [FromBody] Item item)
         {
@@ -52,6 +64,12 @@ namespace BasketApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Removes an Item from a Basket. If the Item is not found, the same status code of 204 No Content is returned so this request idempotent.
+        /// </summary>
+        /// <param name="basketId"></param>
+        /// <param name="itemCode"></param>
+        /// <returns>204 No Content</returns>
         [HttpDelete("{itemCode}")]
         public IActionResult Delete(Guid basketId, string itemCode)
         {
@@ -65,6 +83,11 @@ namespace BasketApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Get all the Items in a Basket.
+        /// </summary>
+        /// <param name="basketId"></param>
+        /// <returns>200 OK and a collection of Items.</returns>
         [HttpGet]
         public IActionResult GetItemsForBasket(Guid basketId)
         {
