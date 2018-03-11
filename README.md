@@ -154,11 +154,11 @@ A sample console app which uses the BasketApiClient to exercise the API.
 Some suggestions for future enhancements:
 
 ### HATEOAS
-The current version of the API is at level 2 on the [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html). Hyperlinks can be returned in the responses that describes the operations available on each of resource. The system acts as a state machine and clients can use these links to move from one state to another. This would make the API more evolveable without needing to update all the clients. For example the [Siren](https://github.com/kevinswiber/siren) standard could be used.
+The current version of the API is at level 2 on the [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html). To reach level 3, HATEOAS could be added. This is where hyperlinks are returned in the responses that describes the operations available on each of resource. The system acts as a state machine and clients can use these links to move from one state to another. This would make the API more evolveable without needing to update all the clients. For example the [Siren](https://github.com/kevinswiber/siren) standard could be used.
 
 ### Rate Limiting
 To make the API more robust, rate limiting could be added by using the [AspNetCoreRateLimit middleware](https://github.com/stefanprodan/AspNetCoreRateLimit).
 
 ### AutoFixture
 
-The [AutoFixture](https://github.com/AutoFixture/AutoFixture) library could be added which reduces the amount of test fixture setup code. Making develpoment more productive and the test more refactoring safe. It now supports .NET Core since January 2018.
+The [AutoFixture](https://github.com/AutoFixture/AutoFixture) library could be added which reduces the amount of test fixture setup code. Making develpoment more productive and the unit tests more refactoring safe. It now supports .NET Core since January 2018.
