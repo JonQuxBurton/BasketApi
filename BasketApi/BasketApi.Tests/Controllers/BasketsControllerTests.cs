@@ -23,6 +23,9 @@ namespace BasketApi.Tests.Controllers
         [Fact]
         public void Post_CreatesBasket()
         {
+            basketsRepositoryMock.Setup(x => x.CreateBasket())
+                .Returns(new Basket(Guid.NewGuid()));
+
             sut.Post();
             
             basketsRepositoryMock.Verify(x => x.CreateBasket());
@@ -36,10 +39,20 @@ namespace BasketApi.Tests.Controllers
 
             var actual = sut.Post();
 
-            var actualResult = actual as OkObjectResult;
-            Assert.Equal(200, actualResult.StatusCode);
+            var actualResult = actual as CreatedAtRouteResult;
             Assert.IsType<Basket>(actualResult.Value);
             Assert.Equal(expectedBasket.Id, (actualResult.Value as Basket).Id);
+        }
+
+        [Fact]
+        public void Post_ReturnsCreated()
+        {
+            var expectedBasket = new Basket(Guid.NewGuid());
+            basketsRepositoryMock.Setup(x => x.CreateBasket()).Returns(expectedBasket);
+
+            var actual = sut.Post();
+
+            Assert.IsType<CreatedAtRouteResult>(actual);
         }
 
         [Fact]

@@ -23,7 +23,7 @@ namespace BasketApi.Controllers
         {
             var newBasket = this.basketsRepository.CreateBasket();
 
-            return new OkObjectResult(newBasket);
+            return CreatedAtRoute("GetBasket", new { basketId = newBasket.Id }, newBasket);
         }
 
         [HttpPost("{basketId}/clear")]
@@ -39,7 +39,7 @@ namespace BasketApi.Controllers
             return NoContent();
         }
 
-        [HttpGet("{basketId}")]
+        [HttpGet("{basketId}", Name="GetBasket")]
         public IActionResult Get(Guid basketId)
         {
             var basket = this.basketsRepository.GetBasket(basketId);
@@ -47,7 +47,7 @@ namespace BasketApi.Controllers
             if (basket == null)
                 return NotFound();
 
-            return new OkObjectResult(basket);
+            return Ok(basket);
         }
     }
 }
