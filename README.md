@@ -139,7 +139,7 @@ Status: 200 OK
 The projects in the solution are as follows:
 
 ### BasketApi
-The Basket REST API.
+The Basket REST API. This is currently setup to use an InMemory datastore. In production this can be replaced by registering the production data store in the composition root (Startup.cs).
 
 ### BasketApiClient
 A project which allows clients to use the API more easily.
