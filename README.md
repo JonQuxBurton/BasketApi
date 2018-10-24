@@ -160,3 +160,13 @@ To make the API more robust, rate limiting could be added by using the [AspNetCo
 ### AutoFixture
 
 The [AutoFixture](https://github.com/AutoFixture/AutoFixture) library could be added which reduces the amount of test fixture setup code. Making develpoment more productive and the unit tests more refactoring safe. It now supports .NET Core since January 2018.
+
+### Update 18/03/2017
+
+### NSpec
+
+The [NSpec](http://nspec.org/) could be used (instead of AutoFixture), which allows tests to be written in a more intuitive style so they read more like a specification. 
+
+### Validation
+
+The ItemsController.Put() method should validate that the Item being added does not have a negative quantity and return 422 Unprocessable entity if it does.
